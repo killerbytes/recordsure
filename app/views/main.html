@@ -1,0 +1,92 @@
+
+<form name="form" novalidate ng-submit="submitForm()" ng-class="type">
+    <div class="form-group">
+        <label for="purpose">Interview Purpose</label>
+        <select name="purpose" id="purpose" ng-model="data.purpose" purpose-type="type" required>
+            <option ng-repeat="item in purpose" value="{{item.value}}">{{item.name}}</option>
+        </select>
+        <div class="help-block" ng-messages="form.purpose.$error" ng-if="submitted || form.interviewer.$touched">
+            <p ng-message="required">This field is required.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="city">City</label>
+        <select name="city" id="city" ng-model="data.city" required>
+            <option ng-repeat="item in cities" value="{{item}}">{{item}}</option>
+            <option value="other">Elsewhere</option>
+        </select>     
+        <div class="help-block" ng-messages="form.city.$error" ng-if="submitted || form.city.$touched">
+            <p ng-message="required">This field is required.</p>
+        </div>
+        <div ng-if="data.city == 'other'" class="other-city">
+            <input type="text" id="elsewhere" name="elsewhere" ng-model="data.elsewhere" required>
+            <div class="help-block" ng-messages="form.elsewhere.$error" ng-if="submitted || form.elsewhere.$touched">
+                <p ng-message="required">This field is required.</p>
+            </div>
+        </div>   
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" ng-model="data.address" required>
+        <div class="help-block" ng-messages="form.address.$error" ng-if="submitted || form.address.$touched">
+            <p ng-message="required">This field is required.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="interviewer">Interviewer</label>
+        <input type="text" id="interviewer" name="interviewer" ng-model="data.interviewer" required>
+        <div class="help-block" ng-messages="form.interviewer.$error" ng-if="submitted || form.interviewer.$touched">
+            <p ng-message="required">This field is required.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="interviewee">Interviewee</label>
+        <input type="text" id="interviewee" name="interviewee" ng-model="data.interviewee" required>
+        <div class="help-block" ng-messages="form.interviewee.$error" ng-if="submitted || form.interviewee.$touched">
+            <p ng-message="required">This field is required.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Interviewee's email</label>
+        <input type="text" id="email" name="email" ng-model="data.email" email required>
+        <div class="help-block" ng-messages="form.email.$error" ng-if="submitted || form.email.$touched">
+            <p ng-message="required">This field is required.</p>
+            <p ng-message="format">Invalid format.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="interviewer">Interviewee's phone number (xxx-xxx-xxxx)</label>
+        <input type="text" id="phone_number" name="phone_number" ng-model="data.phone_number" phone required>
+        <div class="help-block" ng-messages="form.phone_number.$error" ng-if="submitted || form.phone_number.$touched  && !form.date.$valid">
+            <p ng-message="required">This field is required.</p>
+            <p ng-message="format">Invalid format.</p>
+        </div>
+        
+    </div>
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" id="date" name="date" ng-model="data.date" required>
+        <div class="help-block" ng-messages="form.date.$error" ng-if="submitted || form.date.$touched">
+            <p ng-message="required">This field is required.</p>
+        </div>
+        
+    </div>
+
+    <div class="form-group">
+        <label for="unique_id">Unique interview ID</label>
+        <div class="input-group">
+            <input type="text" id="unique_id" name="unique_id" ng-model="data.unique_id" required>
+            <span class="input-button"><button type="button" ng-click="generate()">Generate ID</button></span>
+        </div>
+        <div class="help-block" ng-messages="form.unique_id.$error" ng-if="submitted || form.unique_id.$touched">
+            <p ng-message="required">This field is required.</p>
+        </div>
+    </div>
+    
+    <button type="submit" class="btn-lg" ng-disabledxx="!form.$valid">Submit</button>
+</form>

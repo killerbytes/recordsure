@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+$border-color: #CCC;
+$brand-color: #00bbae;
+$red: #bd3333;
+
+@import 'components/forms';
+
+html{
+    box-sizing: border-box;
+}
+*, :after, :before {
+    box-sizing: inherit;
+}
+body{
+    font-family: 'Roboto';
+    margin: 0;
+}
+
+a{
+    text-decoration: none;
+}
+.container{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+header{
+    background-color: $brand-color; 
+    padding: .5rem 0;
+    margin-bottom: 1rem;
+    .brand{
+        font-size: 20px;
+    }
+    nav{
+        a{
+            margin-right: 1rem;
+            color: #FFF;
+        }
+    }
+
+}
+
+.visa{
+    input,
+    select,
+    button{
+        border-color: #06468e;
+    }
+    label{
+        color: #06468e;
+    }
+}
+.pr{
+    input,
+    select,
+    button{
+        border-color: #1c8618;
+    }
+    label{
+        color: #1c8618;
+    }
+}
+.other-city{
+    margin-top: 1rem;
+}
+
+ul.interview-list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 90%;
+    li{
+        padding: 1rem 0;
+        line-height: 1.6;
+        &:not(:last-child){
+            border-bottom: 1px solid $border-color;
+        }
+        label{
+            color: #999;
+            width: 130px;
+            display: inline-block;
+            text-align: right;
+            margin-right: 1rem;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+<h1>Interviews</h1>
+<ul class="interview-list">
+    <li ng-repeat="item in interviews">
+        <label for="">Purpose: </label>{{item.purpose}} <br>
+        <label for="">City: </label>{{ showCity(item) }} <br>
+        <label for="">Address: </label>{{item.address}} <br>
+        <label for="">Interviewer: </label>{{ shortener(item.interviewer) }} <br>
+        <label for="">Interviewee: </label>{{ shortener(item.interviewee) }} <br>
+        <label for="">Email: </label>{{item.email}} <br>
+        <label for="">Contact Number: </label>{{item.phone_number}} <br>
+        <label for="">Date: </label>{{item.date | date}} <br>
+        <label for="">ID: </label>{{item.unique_id}}
+    </li>
+</ul>
